@@ -14,7 +14,7 @@ pipeline {
 				      ls -la
 				      pwd
                                  '''
-                                 archiveArtifacts '/tmp/$TEST_REPORT_FOLDER/jmeter/**'
+                                 archiveArtifacts '/tmp/$TEST_REPORT_FOLDER/jmeter/*.*'
               
 			  }
 		}
