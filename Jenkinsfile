@@ -22,12 +22,12 @@ pipeline {
 			  }
 		}
 		
-		 stage('publish Jmeter Report'){
-			 steps {
-			  perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: '/Users/rthall/.jenkins/workspace/dockerjmeter2/tests/*.jtl' 
+		 //stage('publish Jmeter Report'){
+		//	 steps {
+		//	  perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: '/Users/rthall/.jenkins/workspace/dockerjmeter2/tests/*.jtl' 
 				
-			 }
-		 }
+		//	 }
+		 //}
 		   
 	 }
 		   
