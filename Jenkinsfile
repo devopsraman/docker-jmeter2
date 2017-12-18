@@ -7,7 +7,7 @@ pipeline {
 				  sh '''
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
                                         mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
-                                        docker run --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins -v ${WORKSPACE}:/jmeter_tests jmeter -n -t /jmeter_tests/tests/Performance/Tests/simple.jmx
+                                       /usr/locl/bin/docker run --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins -v ${WORKSPACE}:/jmeter_tests jmeter -n -t /jmeter_tests/tests/Performance/Tests/simple.jmx
 				        archiveArtifacts "/tmp/$TEST_REPORT_FOLDER/jmeter/**"
               
 				   '''
