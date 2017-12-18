@@ -6,7 +6,11 @@ pipeline {
 			  steps {
 				sh '''
 				    mkdir -p reports/jmeter
+				    pwd
+				    ls -ltr
                                     /usr/local/bin/docker run -i --rm lazzurs/jmeter /bin/bash -c 'cat > /MVP1.0MaxLTV.v2.jmx && jmeter -n -t /MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /report.csv 1>/dev/null && cat /report.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/report.cs
+				    pwd
+				    ls -ltr
 				  '''
 				  archiveArtifacts 'reports/jmeter/**'
 				  /*  sh '''
