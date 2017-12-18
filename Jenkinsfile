@@ -6,15 +6,17 @@ pipeline {
 			  steps {
 				  sh '''
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
-                                        mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
-					LOCAL_IP=$(docker system info | grep ^Name | awk '{print $2}' | xargs nslookup 2>/dev/null | tail -1 | awk '{print $3}')
-                                       /usr/local/bin/docker run -dit -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins   -v ${WORKSPACE}:/jmeter_tests  admiring_blackwell /bin/bash 
-				       /usr/local/bin/docker exec -i admiring_blackwell /bin/bash -c jmeter -n -t /jmeter_tests/tests/MVP1.0MaxLTV.v2.jmx -l /tmp/$TEST_REPORT_FOLDER/jmeter/ 
-				        archiveArtifacts "/tmp/$TEST_REPORT_FOLDER/jmeter/**"
+                                       mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
+                                       ls -la
+                                       ls -la ${WORKSPACE}
+                    docker run --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins -v ${WORKSPACE}:/jmeter_tests lazzurs/jmeter ls /jmeter_tests/
+                    docker run --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins -v ${WORKSPACE}:/jmeter_tests lazzurs/jmeter jmeter -n -t /jmeter_tests/tests/Performance/Tests/simple.jmx -DTESTHOST=nbs-banking-webapp-dpv.dev.banking.hubs.thenbs.io
+                '''
+                archiveArtifacts "/tmp/$TEST_REPORT_FOLDER/jmeter/**"/**"
               
 				   '''
 				
-				// /usr/local/bin/docker exec -i jmeter /bin/bash -c jmeter -n -t /jmeter_tests/tests/MVP1.0MaxLTV.v2.jmx -l /tmp/$TEST_REPORT_FOLDER/jmeter/    
+				
                                   
 			  }
 		}
