@@ -7,7 +7,7 @@ pipeline {
 				  sh '''
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
                                        mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
-				       docker run -i --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins lazzurs/jmeter /bin/bash -c 'cat > /MVP1.0MaxLTV.v2.jmx && jmeter -n -t /MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk' < tests/MVP1.0MaxLTV.v2.jmx
+				       /usr/local/bin/docker run -i --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins lazzurs/jmeter /bin/bash -c 'cat > /MVP1.0MaxLTV.v2.jmx && jmeter -n -t /MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk' < tests/MVP1.0MaxLTV.v2.jmx
                                    '''
 				  
 					//ls -la
