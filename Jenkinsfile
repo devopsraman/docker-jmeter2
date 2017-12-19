@@ -9,7 +9,7 @@ pipeline {
 				    
 				    ls -ltr
                                    
-				   /usr/local/bin/docker run -i --rm lazzurs/jmeter  -c 'cat > /MVP1.0MaxLTV.v2.jmx && jmeter -n -t /MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /report.csv 1>/dev/null && cat /report.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/report.cs
+				   /usr/local/bin/docker run -i --rm lazzurs/jmeter /bin/bash -c 'cat > /tests/MVP1.0MaxLTV.v2.jmx && jmeter -n -t /tests/MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /report.csv 1>/dev/null && cat /report.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/report.cs
 				  '''
 				  archiveArtifacts 'reports/jmeter/**'
 				  /*  sh '''
