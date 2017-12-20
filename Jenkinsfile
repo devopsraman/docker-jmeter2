@@ -9,13 +9,17 @@ pipeline {
 				    
 				    ls -ltr
                                    
-				   /usr/local/bin/docker run -i --rm  devopsraman/jmeter:3.3 /bin/bash -c 'cat > /home/jmeter/MVP1.0MaxLTV.v2.jmx && jmeter -n -t /home/jmeter/MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /home/jmeter/jmeter.csv 1>/dev/null && cat /home/jmeter/jmeter.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/jmeter.cs
+				   /usr/local/bin/docker run -i --rm  devopsraman/jmeter:3.3 /bin/bash -c 'cat > /home/jmeter/MVP1.0MaxLTV.v2.jmx &   && jmeter -n -t /home/jmeter/MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /home/jmeter/jmeter.csv 1>/dev/null && cat /home/jmeter/jmeter.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/jmeter.cs
+				  /usr/local/bin/docker run -i --rm  devopsraman/jmeter:3.3 /bin/bash -c 'cat > /home/jmeter/test.jmx && jmeter -n -t /home/jmeter/test.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /home/jmeter/jmeter1.csv 1>/dev/null && cat /home/jmeter/jmeter1.csv' < tests/test.jmx > reports/jmeter/jmeter1.cs
+				  
+				  
+				  
 				  '''
 				  archiveArtifacts 'reports/jmeter/**'
 				  /*  sh '''
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
                                        mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
-			     
+			                 /usr/local/bin/docker run -i --rm  devopsraman/jmeter:3.3 /bin/bash -c 'cat > /home/jmeter/MVP1.0MaxLTV.v2.jmx && jmeter -n -t /home/jmeter/MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /home/jmeter/jmeter.csv 1>/dev/null && cat /home/jmeter/jmeter.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/jmeter.cs
 					ls -la
                                        ls -la ${WORKSPACE}
                                       /usr/local/bin/docker run --rm -v /tmp/$TEST_REPORT_FOLDER/jmeter/:/tmp-jenkins -v ${WORKSPACE}:/jmeter_tests lazzurs/jmeter ls /jmeter_tests/
@@ -24,7 +28,7 @@ pipeline {
                                 */ 
                                  //archiveArtifacts '/tmp/$TEST_REPORT_FOLDER/jmeter//*'
 				  // /usr/local/bin/docker run -i --rm lazzurs/jmeter /bin/bash -c 'cat > /MVP1.0MaxLTV.v2.jmx && jmeter -n -t /MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /report.csv 1>/dev/null && cat /report.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/report.cs
-              
+                                
 			  }
 		}
 		
