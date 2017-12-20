@@ -9,7 +9,7 @@ pipeline {
 				    
 				    ls -ltr
 				    pwd
-                                   /usr/local/bin/docker build -t test:latest
+                                   /usr/local/bin/docker build -t test:latest .
 				   ///usr/local/bin/docker run -i --rm  devopsraman/jmeter:3.3 /bin/bash -c 'cat > /home/jmeter/MVP1.0MaxLTV.v2.jmx  && jmeter -n -t /home/jmeter/MVP1.0MaxLTV.v2.jmx -DTESTHOST=nbs-mortgages-remo-webapp.dev.mortgages.nationwide.co.uk -l /home/jmeter/jmeter.csv 1>/dev/null && cat /home/jmeter/jmeter.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/jmeter.cs
 				  
 				  '''
