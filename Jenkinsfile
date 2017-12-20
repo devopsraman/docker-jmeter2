@@ -20,7 +20,7 @@ pipeline {
 				  
 				  
 				  archiveArtifacts 'reports/jmeter/**'
-				   /usr/local/bin/docker rmi test
+				  sh' /usr/local/bin/docker rmi test '
 				  /*  sh '''
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
                                        mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
