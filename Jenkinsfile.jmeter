@@ -50,7 +50,7 @@ pipeline {
 				 sh '''
 				   /usr/local/bin/docker images |grep nbs/jmeter
 				  /usr/local/bin/docker rmi -f nbs/jmeter
-				  tar -zcvf Jmeter-Report-${BUILD_NUMBER}.tar.gz reports/
+				  tar -zcvf Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
 				  ls -ltr
 			
 			
