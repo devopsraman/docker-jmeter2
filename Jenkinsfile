@@ -19,7 +19,7 @@ pipeline {
 				  
 				  
 				  
-				  archiveArtifacts 'reports/jmeter/**'
+				  //archiveArtifacts 'reports/jmeter/**'
 				  
 				  /*
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
