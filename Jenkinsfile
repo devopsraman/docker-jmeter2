@@ -21,7 +21,7 @@ pipeline {
 				  
 				  archiveArtifacts 'reports/jmeter/**'
 				  sh '''
-				   /usr/local/bin/docker images |grep jmeter:3.3
+				   /usr/local/bin/docker images |grep jmeter
 				  /usr/local/bin/docker rmi -f jmeter:3.3
 				  
 				  '''
