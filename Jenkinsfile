@@ -20,11 +20,7 @@ pipeline {
 				  
 				  
 				  archiveArtifacts 'reports/jmeter/**'
-				  sh '''
-				   /usr/local/bin/docker images |grep jmeter
-				  /usr/local/bin/docker rmi -f nbs/jmeter
 				  
-				  '''
 				  /*
 				        TEST_REPORT_FOLDER="${JOB_NAME}-${BUILD_NUMBER}"
                                        mkdir -p /tmp/$TEST_REPORT_FOLDER/jmeter/
@@ -46,6 +42,14 @@ pipeline {
 			 // perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: '/Users/rthall/.jenkins/workspace/dockerjmeter2/tests/jmeter.jtl' 
 			perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: ' reports/jmeter/** '	
 			 hipchatSend color: 'YELLOW', credentialId: 'jenkinslogin', message: 'build sucess', notify: true, room: '', sendAs: '', server: '', textFormat: true, v2enabled: true
+			 
+				 sh '''
+				   /usr/local/bin/docker images |grep jmeter
+				  /usr/local/bin/docker rmi -f nbs/jmeter
+				  
+				  '''
+			 
+			 
 			 }
 		 }
 	   
