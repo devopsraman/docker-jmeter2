@@ -41,7 +41,7 @@ pipeline {
 			 steps {
 			 // perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: '/Users/rthall/.jenkins/workspace/dockerjmeter2/tests/jmeter.jtl' 
 			perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: ' reports/jmeter/** '	
-			 hipchatSend color: 'YELLOW', credentialId: 'jenkinslogin', message: 'build sucess', notify: true, room: '', sendAs: '', server: '', textFormat: true, v2enabled: true
+			 //hipchatSend color: 'YELLOW', credentialId: 'jenkinslogin', message: 'build sucess', notify: true, room: '', sendAs: '', server: '', textFormat: true, v2enabled: true
 			 
 				 sh '''
 				   /usr/local/bin/docker images |grep nbs/jmeter
