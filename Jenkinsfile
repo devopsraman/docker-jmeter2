@@ -46,6 +46,7 @@ pipeline {
 				 sh '''
 				   /usr/local/bin/docker images |grep jmeter
 				  /usr/local/bin/docker rmi -f nbs/jmeter
+				  /usr/local/bin/docker images |grep jmeter
 				  
 				  '''
 			 
