@@ -54,9 +54,9 @@ pipeline {
 				  /usr/local/bin/docker rmi -f nbs/jmeter
 				  tar -zcvf Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
 				  ls -ltr
-				  pwd
-				  
-			      archiveArtifacts 'reports/jmeter/**'
+			           cp Jmeter-Report* /reports/jmeter/
+				   cd /reposrts/jmeter/
+				   ls -ltr
 			
 				  '''
 			 
