@@ -44,8 +44,11 @@ pipeline {
 			 steps {
 			 // perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: '/Users/rthall/.jenkins/workspace/dockerjmeter2/tests/jmeter.jtl' 
 			archiveArtifacts 'reports/jmeter/**'
-			perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: ' reports/jmeter/** '	
-			 //hipchatSend color: 'YELLOW', credentialId: 'jenkinslogin', message: 'build sucess', notify: true, room: '', sendAs: '', server: '', textFormat: true, v2enabled: true
+			//perfReport compareBuildPrevious: true, excludeResponseTime: true, modePerformancePerTestCase: true, modeThroughput: true, sourceDataFiles: ' reports/jmeter/** '	
+			perfReport compareBuildPrevious: true, constraints: [[$class: 'AbsoluteConstraint', escalationLevel: 'INFORMATION', meteredValue: 'AVERAGE', operator: 'NOT_GREATER', relatedPerfReport: 'reports/jmeter/**', success: false, value: 0], [$class: 'RelativeConstraint', escalationLevel: 'ERROR', meteredValue: 'ERRORPRC', operator: 'NOT_GREATER', previousResultsBlock: [previousResultsString: '50', value: 'true'], relatedPerfReport: 'reports/jmeter/**', success: false, tolerance: 0.0], [$class: 'RelativeConstraint', escalationLevel: 'ERROR', meteredValue: 'AVERAGE', operator: 'NOT_GREATER', previousResultsBlock: [previousResultsString: '50', value: 'true'], relatedPerfReport: 'reports/jmeter/**', success: false, tolerance: 0.0]], ignoreFailedBuilds: true, ignoreUnstableBuilds: true, modeEvaluation: true, modePerformancePerTestCase: true, modeThroughput: true, persistConstraintLog: true, sourceDataFiles: 'reports/jmeter/**'
+			
+			
+			//hipchatSend color: 'YELLOW', credentialId: 'jenkinslogin', message: 'build sucess', notify: true, room: '', sendAs: '', server: '', textFormat: true, v2enabled: true
 			 
 				 sh '''
 				   /usr/local/bin/docker images |grep nbs/jmeter
