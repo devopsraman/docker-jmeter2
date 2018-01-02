@@ -55,7 +55,7 @@ pipeline {
 				  tar -zcvf /reposrts/jmeter/Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
 				  ls -ltr
 				  cd /reposrts/jmeter/
-			      archiveArtifacts 'reports/jmeter/*.gz'
+			      archiveArtifacts 'reports/jmeter/**'
 			
 				  '''
 			 
