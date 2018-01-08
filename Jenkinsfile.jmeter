@@ -58,6 +58,7 @@ pipeline {
 				  ls -ltr
 			          
 				  /usr/local/bin/docker images |grep nbs/jmeter
+				  /usr/local/bin/docker images 
 			
 				  '''
 			      // /usr/local/bin/docker images |grep nbs/jmeter
