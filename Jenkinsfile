@@ -54,7 +54,7 @@ pipeline {
 			 
 				 sh '''
 				   
-				 // tar -zcvf Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
+				 # tar -zcvf Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
 				  ls -ltr
 			          
 				  /usr/local/bin/docker images |grep abc/jmeter
