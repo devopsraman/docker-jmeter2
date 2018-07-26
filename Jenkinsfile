@@ -9,7 +9,7 @@ pipeline {
 				    
 				    ls -ltr
 				  
-                                    docker build  -f docker/Dockerfile.jmeter -t abc/jmeter .
+                                    /usr/bin/docker build  -f docker/Dockerfile.jmeter -t abc/jmeter .
 				    /usr/bin/docker images |grep abc/jmeter
 				   /usr/bin/docker run -i --rm  abc/jmeter /bin/bash -c 'cat > /home/jmeter/MVP1.0MaxLTV.v2.jmx  && jmeter -n -t /home/jmeter/MVP1.0MaxLTV.v2.jmx -DTESTHOST=www.google.com -l  /home/jmeter/jmeter.csv 1>/dev/null && cat /home/jmeter/jmeter.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/jmeter.cs
 				  
@@ -57,12 +57,12 @@ pipeline {
 				 # tar -zcvf Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
 				  ls -ltr
 			          
-				  docker images |grep abc/jmeter
-				  docker images 
+				 // docker images |grep abc/jmeter
+				  //docker images 
 			
 				  '''
-			      // /usr/local/bin/docker images |grep nbs/jmeter
-				//  /usr/local/bin/docker rmi -f nbs/jmeter
+			       /usr/local/bin/docker images |grep nbs/jmeter
+				  /usr/local/bin/docker rmi -f nbs/jmeter
 			 
 			 }
 		 }
