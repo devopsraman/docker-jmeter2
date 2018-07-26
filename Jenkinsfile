@@ -8,8 +8,9 @@ pipeline {
 				    mkdir -p reports/jmeter
 				    
 				    ls -ltr
-				  
-				  /var/lib/ docker version
+				   sudo su - ipsadmin
+				   
+				  /var/lib/docker version
                                     /usr/bin/docker build  -f docker/Dockerfile.jmeter -t abc/jmeter .
 				    /usr/bin/docker images |grep abc/jmeter
 				   /usr/bin/docker run -i --rm  abc/jmeter /bin/bash -c 'cat > /home/jmeter/MVP1.0MaxLTV.v2.jmx  && jmeter -n -t /home/jmeter/MVP1.0MaxLTV.v2.jmx -DTESTHOST=www.google.com -l  /home/jmeter/jmeter.csv 1>/dev/null && cat /home/jmeter/jmeter.csv' < tests/MVP1.0MaxLTV.v2.jmx > reports/jmeter/jmeter.cs
