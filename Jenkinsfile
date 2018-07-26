@@ -57,12 +57,12 @@ pipeline {
 				 # tar -zcvf Jmeter-Report-${JOB_NAME}-${BUILD_NUMBER}.tar.gz reports/
 				  ls -ltr
 			          
-				 // docker images |grep abc/jmeter
-				  //docker images 
+				 /usr/local/bin/docker images |grep abc/jmeter
+				  /usr/local/bin/docker images 
 			
 				  '''
-			       /usr/local/bin/docker images |grep nbs/jmeter
-				  /usr/local/bin/docker rmi -f nbs/jmeter
+			     //  /usr/local/bin/docker images |grep nbs/jmeter
+				//  /usr/local/bin/docker rmi -f nbs/jmeter
 			 
 			 }
 		 }
