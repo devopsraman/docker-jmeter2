@@ -8,8 +8,7 @@ pipeline {
 				    mkdir -p reports/jmeter
 				    
 				    ls -ltr
-				   sudo su - ipsadmin
-				   
+				   				   
 				  /var/lib/docker version
                                     /usr/bin/docker build  -f docker/Dockerfile.jmeter -t abc/jmeter .
 				    /usr/bin/docker images |grep abc/jmeter
